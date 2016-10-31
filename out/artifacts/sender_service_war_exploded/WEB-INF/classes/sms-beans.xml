@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
+
+
+
+
+    <bean id="taskFactory" class="com.lab.platform.sms.service.dispatcher.TaskFactory">
+        <property name="configMap">
+            <map>
+                <entry key="hongcheng" value-ref="hcConfig"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="hcConfig" class="com.lab.platform.sms.service.common.ChannelConfig">
+        <property name="userId" value="${sms.channel.hongchengc.uid}" />
+        <property name="password" value="${sms.channel.hongcheng.pwd}" />
+        <property name="url" value="${sms.channel.hongcheng.url}" />
+    </bean>
+
+
+</beans>
